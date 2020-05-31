@@ -1,0 +1,59 @@
+<h1 style="color:white">Welcome to CitySights</h1>
+<h3 style="color:white">Contributors: Yan, Sahil, Marek</h3>
+<style>
+body {
+  background-image: url('https://github.com/yanmiao2/cs411_project/blob/Working_copy/willis-tower-chicago-night-skyscrapers-cityscape.jpg?raw=true');
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: 100%;
+
+}
+</style>
+<br>
+<a href="/">Homepage</a><br><br>
+
+<h1 style="color:white">Scheduler</h1>
+<form action="/schedule" method="post">
+    <br>
+    <h5 style="color:white">Note: Maximum Three Day Range</h5>
+    <label for="" style="color:white">Start Date: &nbsp</label>
+        <input type="date" name="startdate" id = "startdate" >
+<br>
+    <label for="" style="color:white">End Date: &nbsp &nbsp</label>
+        <input type="date" name="enddate" id ="enddate" onblur ="datelogic()">    <br><br>
+    <label for="budget" style="color:white">Budget per Event: &nbsp </label>
+    <input type="number" name="budget">
+    <br><br>
+    <label for="" style="color:white">Interests: &nbsp &nbsp &nbsp</label>
+    <select id="interests" name="interests" multiple>
+        <option value="Theatre">Theatre</option>
+        <option value="Music">Music</option>
+        <option value="Sports">Sports</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Religion">Religion</option>
+    </select>
+    <br><br>
+    <label for="" style="color:white">Group Type: &nbsp</label>
+    <select id="group_type" name="group_type">
+      <option value="none"></option>
+        <option value="Couple">Couple</option>
+        <option value="Family">Family</option>
+        <option value="Friends">Friends</option>
+    </select>
+    <br>
+    <!-- <button type="submit" name="button"class="btn btn-success">Find Single Event</button><br><br> -->
+    <br>
+    <button type="submit" name="button"class="btn btn-primary">Generate Schedule of Events</button>
+    <script>
+      function datelogic() {
+      var x = document.getElementById("startdate").value;
+      var start = new Date(x);
+      var y = document.getElementById("enddate").value;
+      var end = new Date(y);
+      var days = (end-start)/(1000*60*60*24)
+      if(days>2 || days<0){
+      alert("Invalid input for date. Must be a three day range");
+    }
+}
+</script>
+</form>
